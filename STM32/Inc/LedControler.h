@@ -9,6 +9,12 @@ typedef struct{
     uint16_t pin;
 } ADRESSE;
 
-void LedInitialization(ADRESSE* ledInfos);
+#define WriteLedTime(seconds, milliseconds)\
+{\
+    HAL_GPIO_WritePin(LED0_GPIO_Port, 0, 0);\
+    HAL_GPIO_WritePin(LED0_GPIO_Port, (milliseconds|(seconds*10000))&0xfff, 1);\
+}\
+
+void LedInitialization(ADRESSE ledInfos[12]);
 
 #endif

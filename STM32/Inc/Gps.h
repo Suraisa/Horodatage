@@ -7,10 +7,8 @@
 
 typedef struct
 {
-    uint8_t hour;
-    uint8_t minutes;
     uint8_t seconds;
-    uint8_t milliseconds;
+    uint16_t milliseconds;
 }TIME;
 
 TIME GgaTimeReception(char* nmea);

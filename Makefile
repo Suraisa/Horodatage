@@ -1,6 +1,6 @@
-BOARD=f4
-PROJECT_DIR=test
-PROJECT_NAME=test
+BOARD=f0
+PROJECT_DIR=STM32
+PROJECT_NAME=STM32
 DOC_DIR= /home/$(USER)/STM32Cube/
 
 rouge = \033[0;31m
@@ -40,7 +40,7 @@ comp:
 
 flash:
 	@echo -e "${vert_gras}+---------------------[ Transfert ]---------------------+ ${fin}"
-	openocd -f openocd/st_nucleo_$(BOARD).cfg -c "program $(PROJECT_DIR)/build/$(PROJECT_NAME).bin exit 0x08000000 reset"
+	openocd -f openocd/tcl/board/st_nucleo_$(BOARD).cfg -c "program $(PROJECT_DIR)/build/$(PROJECT_NAME).bin exit 0x08000000 reset"
 	@echo -e "${vert_gras}+----------------[ Transfert terminé ]------------------+ ${fin}"
 
 debug:

@@ -173,7 +173,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if(GPIO_Pin == PPS_Pin)
   {
     HAL_GPIO_TogglePin(OSC_DELAY_GPIO_Port, OSC_DELAY_Pin);
-  } 
+  }
 }
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -1,0 +1,229 @@
+ARM GAS  /tmp/ccdhleW3.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"LedControler.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.LedInitialization,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	LedInitialization
+  19              		.arch armv6s-m
+  20              		.syntax unified
+  21              		.code	16
+  22              		.thumb_func
+  23              		.fpu softvfp
+  25              	LedInitialization:
+  26              	.LVL0:
+  27              	.LFB37:
+  28              		.file 1 "Src/LedControler.c"
+   1:Src/LedControler.c **** #include "LedControler.h"
+   2:Src/LedControler.c **** 
+   3:Src/LedControler.c **** void LedInitialization(ADRESSE ledInfos[12])
+   4:Src/LedControler.c **** {
+  29              		.loc 1 4 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   5:Src/LedControler.c ****     ledInfos[0].port = LED0_GPIO_Port;
+  34              		.loc 1 5 5 view .LVU1
+   6:Src/LedControler.c ****     ledInfos[0].pin = LED0_Pin;
+  35              		.loc 1 6 21 is_stmt 0 view .LVU2
+  36 0000 0122     		movs	r2, #1
+  37 0002 8280     		strh	r2, [r0, #4]
+   7:Src/LedControler.c ****     ledInfos[1].port = LED1_GPIO_Port;
+   8:Src/LedControler.c ****     ledInfos[1].pin = LED1_Pin;
+  38              		.loc 1 8 21 view .LVU3
+  39 0004 0132     		adds	r2, r2, #1
+  40 0006 8281     		strh	r2, [r0, #12]
+   9:Src/LedControler.c ****     ledInfos[2].port = LED2_GPIO_Port;
+  10:Src/LedControler.c ****     ledInfos[2].pin = LED2_Pin;
+  41              		.loc 1 10 21 view .LVU4
+  42 0008 0232     		adds	r2, r2, #2
+  43 000a 8282     		strh	r2, [r0, #20]
+  11:Src/LedControler.c ****     ledInfos[3].port = LED3_GPIO_Port;
+  12:Src/LedControler.c ****     ledInfos[3].pin = LED3_Pin;
+  44              		.loc 1 12 21 view .LVU5
+  45 000c 0432     		adds	r2, r2, #4
+  46 000e 8283     		strh	r2, [r0, #28]
+ARM GAS  /tmp/ccdhleW3.s 			page 2
+
+
+  13:Src/LedControler.c ****     ledInfos[4].port = LED4_GPIO_Port;
+  14:Src/LedControler.c ****     ledInfos[4].pin = LED4_Pin;
+  47              		.loc 1 14 21 view .LVU6
+  48 0010 0832     		adds	r2, r2, #8
+  49 0012 8284     		strh	r2, [r0, #36]
+  15:Src/LedControler.c ****     ledInfos[5].port = LED5_GPIO_Port;
+  16:Src/LedControler.c ****     ledInfos[5].pin = LED5_Pin;
+  50              		.loc 1 16 21 view .LVU7
+  51 0014 1032     		adds	r2, r2, #16
+  52 0016 8285     		strh	r2, [r0, #44]
+  17:Src/LedControler.c ****     ledInfos[6].port = LED6_GPIO_Port;
+  18:Src/LedControler.c ****     ledInfos[6].pin = LED6_Pin;
+  53              		.loc 1 18 21 view .LVU8
+  54 0018 2032     		adds	r2, r2, #32
+  55 001a 8286     		strh	r2, [r0, #52]
+  19:Src/LedControler.c ****     ledInfos[7].port = LED7_GPIO_Port;
+  20:Src/LedControler.c ****     ledInfos[7].pin = LED7_Pin;
+  56              		.loc 1 20 21 view .LVU9
+  57 001c 4032     		adds	r2, r2, #64
+  58 001e 8287     		strh	r2, [r0, #60]
+  21:Src/LedControler.c ****     ledInfos[8].port = LED8_GPIO_Port;
+  22:Src/LedControler.c ****     ledInfos[8].pin = LED8_Pin;
+  59              		.loc 1 22 21 view .LVU10
+  60 0020 8021     		movs	r1, #128
+  61 0022 0200     		movs	r2, r0
+   5:Src/LedControler.c ****     ledInfos[0].pin = LED0_Pin;
+  62              		.loc 1 5 22 view .LVU11
+  63 0024 0C4B     		ldr	r3, .L3
+  64              		.loc 1 22 21 view .LVU12
+  65 0026 4032     		adds	r2, r2, #64
+  66 0028 4900     		lsls	r1, r1, #1
+   5:Src/LedControler.c ****     ledInfos[0].pin = LED0_Pin;
+  67              		.loc 1 5 22 view .LVU13
+  68 002a 0360     		str	r3, [r0]
+   6:Src/LedControler.c ****     ledInfos[1].port = LED1_GPIO_Port;
+  69              		.loc 1 6 5 is_stmt 1 view .LVU14
+   7:Src/LedControler.c ****     ledInfos[1].pin = LED1_Pin;
+  70              		.loc 1 7 5 view .LVU15
+   7:Src/LedControler.c ****     ledInfos[1].pin = LED1_Pin;
+  71              		.loc 1 7 22 is_stmt 0 view .LVU16
+  72 002c 8360     		str	r3, [r0, #8]
+   8:Src/LedControler.c ****     ledInfos[2].port = LED2_GPIO_Port;
+  73              		.loc 1 8 5 is_stmt 1 view .LVU17
+   9:Src/LedControler.c ****     ledInfos[2].pin = LED2_Pin;
+  74              		.loc 1 9 5 view .LVU18
+   9:Src/LedControler.c ****     ledInfos[2].pin = LED2_Pin;
+  75              		.loc 1 9 22 is_stmt 0 view .LVU19
+  76 002e 0361     		str	r3, [r0, #16]
+  10:Src/LedControler.c ****     ledInfos[3].port = LED3_GPIO_Port;
+  77              		.loc 1 10 5 is_stmt 1 view .LVU20
+  11:Src/LedControler.c ****     ledInfos[3].pin = LED3_Pin;
+  78              		.loc 1 11 5 view .LVU21
+  11:Src/LedControler.c ****     ledInfos[3].pin = LED3_Pin;
+  79              		.loc 1 11 22 is_stmt 0 view .LVU22
+  80 0030 8361     		str	r3, [r0, #24]
+  12:Src/LedControler.c ****     ledInfos[4].port = LED4_GPIO_Port;
+  81              		.loc 1 12 5 is_stmt 1 view .LVU23
+ARM GAS  /tmp/ccdhleW3.s 			page 3
+
+
+  13:Src/LedControler.c ****     ledInfos[4].pin = LED4_Pin;
+  82              		.loc 1 13 5 view .LVU24
+  13:Src/LedControler.c ****     ledInfos[4].pin = LED4_Pin;
+  83              		.loc 1 13 22 is_stmt 0 view .LVU25
+  84 0032 0362     		str	r3, [r0, #32]
+  14:Src/LedControler.c ****     ledInfos[5].port = LED5_GPIO_Port;
+  85              		.loc 1 14 5 is_stmt 1 view .LVU26
+  15:Src/LedControler.c ****     ledInfos[5].pin = LED5_Pin;
+  86              		.loc 1 15 5 view .LVU27
+  15:Src/LedControler.c ****     ledInfos[5].pin = LED5_Pin;
+  87              		.loc 1 15 22 is_stmt 0 view .LVU28
+  88 0034 8362     		str	r3, [r0, #40]
+  16:Src/LedControler.c ****     ledInfos[6].port = LED6_GPIO_Port;
+  89              		.loc 1 16 5 is_stmt 1 view .LVU29
+  17:Src/LedControler.c ****     ledInfos[6].pin = LED6_Pin;
+  90              		.loc 1 17 5 view .LVU30
+  17:Src/LedControler.c ****     ledInfos[6].pin = LED6_Pin;
+  91              		.loc 1 17 22 is_stmt 0 view .LVU31
+  92 0036 0363     		str	r3, [r0, #48]
+  18:Src/LedControler.c ****     ledInfos[7].port = LED7_GPIO_Port;
+  93              		.loc 1 18 5 is_stmt 1 view .LVU32
+  19:Src/LedControler.c ****     ledInfos[7].pin = LED7_Pin;
+  94              		.loc 1 19 5 view .LVU33
+  19:Src/LedControler.c ****     ledInfos[7].pin = LED7_Pin;
+  95              		.loc 1 19 22 is_stmt 0 view .LVU34
+  96 0038 8363     		str	r3, [r0, #56]
+  20:Src/LedControler.c ****     ledInfos[8].port = LED8_GPIO_Port;
+  97              		.loc 1 20 5 is_stmt 1 view .LVU35
+  21:Src/LedControler.c ****     ledInfos[8].pin = LED8_Pin;
+  98              		.loc 1 21 5 view .LVU36
+  21:Src/LedControler.c ****     ledInfos[8].pin = LED8_Pin;
+  99              		.loc 1 21 22 is_stmt 0 view .LVU37
+ 100 003a 0364     		str	r3, [r0, #64]
+ 101              		.loc 1 22 5 is_stmt 1 view .LVU38
+ 102              		.loc 1 22 21 is_stmt 0 view .LVU39
+ 103 003c 9180     		strh	r1, [r2, #4]
+  23:Src/LedControler.c ****     ledInfos[9].port = LED9_GPIO_Port;
+ 104              		.loc 1 23 5 is_stmt 1 view .LVU40
+  24:Src/LedControler.c ****     ledInfos[9].pin = LED9_Pin;
+ 105              		.loc 1 24 21 is_stmt 0 view .LVU41
+ 106 003e 4918     		adds	r1, r1, r1
+  23:Src/LedControler.c ****     ledInfos[9].port = LED9_GPIO_Port;
+ 107              		.loc 1 23 22 view .LVU42
+ 108 0040 8364     		str	r3, [r0, #72]
+ 109              		.loc 1 24 5 is_stmt 1 view .LVU43
+ 110              		.loc 1 24 21 is_stmt 0 view .LVU44
+ 111 0042 9181     		strh	r1, [r2, #12]
+  25:Src/LedControler.c ****     ledInfos[10].port = LED10_GPIO_Port;
+ 112              		.loc 1 25 5 is_stmt 1 view .LVU45
+  26:Src/LedControler.c ****     ledInfos[10].pin = LED10_Pin;
+ 113              		.loc 1 26 22 is_stmt 0 view .LVU46
+ 114 0044 8021     		movs	r1, #128
+ 115 0046 C900     		lsls	r1, r1, #3
+  25:Src/LedControler.c ****     ledInfos[10].port = LED10_GPIO_Port;
+ 116              		.loc 1 25 23 view .LVU47
+ 117 0048 0365     		str	r3, [r0, #80]
+ 118              		.loc 1 26 5 is_stmt 1 view .LVU48
+ARM GAS  /tmp/ccdhleW3.s 			page 4
+
+
+ 119              		.loc 1 26 22 is_stmt 0 view .LVU49
+ 120 004a 9182     		strh	r1, [r2, #20]
+  27:Src/LedControler.c ****     ledInfos[11].port = LED11_GPIO_Port;
+ 121              		.loc 1 27 5 is_stmt 1 view .LVU50
+ 122              		.loc 1 27 23 is_stmt 0 view .LVU51
+ 123 004c 8365     		str	r3, [r0, #88]
+  28:Src/LedControler.c ****     ledInfos[11].pin = LED11_Pin;
+ 124              		.loc 1 28 5 is_stmt 1 view .LVU52
+ 125              		.loc 1 28 22 is_stmt 0 view .LVU53
+ 126 004e 8023     		movs	r3, #128
+ 127 0050 5830     		adds	r0, r0, #88
+ 128              	.LVL1:
+ 129              		.loc 1 28 22 view .LVU54
+ 130 0052 1B01     		lsls	r3, r3, #4
+ 131 0054 8380     		strh	r3, [r0, #4]
+  29:Src/LedControler.c **** }...
+ 132              		.loc 1 29 1 view .LVU55
+ 133              		@ sp needed
+ 134 0056 7047     		bx	lr
+ 135              	.L4:
+ 136              		.align	2
+ 137              	.L3:
+ 138 0058 00040048 		.word	1207960576
+ 139              		.cfi_endproc
+ 140              	.LFE37:
+ 142              		.text
+ 143              	.Letext0:
+ 144              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 145              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
+ 146              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
+ 147              		.file 5 "/usr/lib/gcc/arm-none-eabi/8.2.0/include/stddef.h"
+ 148              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
+ 149              		.file 7 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 150              		.file 8 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 151              		.file 9 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x8.h"
+ 152              		.file 10 "Inc/LedControler.h"
+ARM GAS  /tmp/ccdhleW3.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 LedControler.c
+     /tmp/ccdhleW3.s:16     .text.LedInitialization:0000000000000000 $t
+     /tmp/ccdhleW3.s:25     .text.LedInitialization:0000000000000000 LedInitialization
+     /tmp/ccdhleW3.s:138    .text.LedInitialization:0000000000000058 $d
+
+NO UNDEFINED SYMBOLS
