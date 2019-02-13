@@ -87,6 +87,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+  char* nmea;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -109,7 +110,6 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  LedInitialization(leds);
   HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, 0);
   /* USER CODE END 2 */
 
@@ -120,7 +120,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    GgaTimeReception(char* nmea)
+    GgaTimeReception(nmea);
   }
   /* USER CODE END 3 */
 }

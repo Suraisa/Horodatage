@@ -57,8 +57,7 @@ Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c \
 Src/system_stm32f0xx.c \
 Src/usart.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c \
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c \
-Src/LedControler.c
+Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
 
 # ASM sources
 ASM_SOURCES =  \
