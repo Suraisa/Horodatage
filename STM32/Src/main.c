@@ -110,7 +110,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, 0);
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,7 +120,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    GgaTimeReception(nmea);
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+    HAL_Delay(500);
+
+    // GgaTimeReception(nmea);
   }
   /* USER CODE END 3 */
 }
