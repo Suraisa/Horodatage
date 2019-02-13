@@ -45,6 +45,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -87,7 +88,8 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  char message[80] = "\0";
+  char* token;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -110,6 +112,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -119,6 +122,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    if(HAL_UART_Receive(&huart2, message, 79, 1000) == HAL_OK)
+    {
+      if((token = GgaStringTime(message)) != NULL)
+      {
+        HAL_UART_Transmit(&huart2, token, 10, 1000);
+        HAL_UART_Transmit(&huart2, "\n", 1, 1000);
+      }
+    }
   }
   /* USER CODE END 3 */
 }

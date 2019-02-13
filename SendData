@@ -1,2 +1,5 @@
-sudo stty -F /dev/ttyUSB0 9600
-sudo echo -e `cat "$1"` | sudo tee /dev/ttyUSB0
+TTY='/dev/'
+DEVICE="$TTY$1"
+
+sudo stty -F $DEVICE 9600
+sudo echo -e `cat "$2"` | sudo tee $DEVICE

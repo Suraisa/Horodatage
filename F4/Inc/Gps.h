@@ -7,4 +7,6 @@
 
 void GgaTimeReception(uint32_t* timer, char* nmea);
 
+char* GgaStringTime(char* nmea);
+
 #endif
