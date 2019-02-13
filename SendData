@@ -1,0 +1,5 @@
+TTY='/dev/'
+DEVICE="$TTY$1"
+
+sudo stty -F $DEVICE 9600
+sudo echo -e `cat "$2"` | sudo tee $DEVICE

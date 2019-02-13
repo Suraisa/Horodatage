@@ -1,0 +1,152 @@
+ARM GAS  /tmp/cchIjHjQ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"Gps.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	__aeabi_d2f
+  18              		.section	.text.GgaTimeReception,"ax",%progbits
+  19              		.align	1
+  20              		.p2align 2,,3
+  21              		.global	GgaTimeReception
+  22              		.arch armv7e-m
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  26              		.fpu fpv4-sp-d16
+  28              	GgaTimeReception:
+  29              	.LVL0:
+  30              	.LFB3:
+  31              		.file 1 "Src/Gps.c"
+   1:Src/Gps.c     **** #include "Gps.h"
+   2:Src/Gps.c     **** 
+   3:Src/Gps.c     **** void GgaTimeReception(uint32_t* timer, char* nmea)
+   4:Src/Gps.c     **** {
+  32              		.loc 1 4 1 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+   5:Src/Gps.c     ****     if (strstr(nmea, "$GPGGA"))
+  36              		.loc 1 5 5 view .LVU1
+   4:Src/Gps.c     ****     if (strstr(nmea, "$GPGGA"))
+  37              		.loc 1 4 1 is_stmt 0 view .LVU2
+  38 0000 38B5     		push	{r3, r4, r5, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 16
+  41              		.cfi_offset 3, -16
+  42              		.cfi_offset 4, -12
+  43              		.cfi_offset 5, -8
+  44              		.cfi_offset 14, -4
+   4:Src/Gps.c     ****     if (strstr(nmea, "$GPGGA"))
+  45              		.loc 1 4 1 view .LVU3
+  46 0002 0C46     		mov	r4, r1
+  47 0004 0546     		mov	r5, r0
+  48              		.loc 1 5 9 view .LVU4
+  49 0006 0B49     		ldr	r1, .L8
+  50              	.LVL1:
+  51              		.loc 1 5 9 view .LVU5
+ARM GAS  /tmp/cchIjHjQ.s 			page 2
+
+
+  52 0008 2046     		mov	r0, r4
+  53              	.LVL2:
+  54              		.loc 1 5 9 view .LVU6
+  55 000a FFF7FEFF 		bl	strstr
+  56              	.LVL3:
+  57              		.loc 1 5 8 view .LVU7
+  58 000e 80B1     		cbz	r0, .L1
+  59              	.LBB2:
+   6:Src/Gps.c     ****     {
+   7:Src/Gps.c     ****         char* nmeaGga = nmea;
+  60              		.loc 1 7 9 is_stmt 1 view .LVU8
+  61              	.LVL4:
+   8:Src/Gps.c     ****         nmeaGga = strchr(nmeaGga, ',')+1;
+  62              		.loc 1 8 9 view .LVU9
+  63              		.loc 1 8 19 is_stmt 0 view .LVU10
+  64 0010 2C21     		movs	r1, #44
+  65 0012 2046     		mov	r0, r4
+  66 0014 FFF7FEFF 		bl	strchr
+  67              	.LVL5:
+   9:Src/Gps.c     ****         float timef = atof(nmeaGga);
+  68              		.loc 1 9 9 is_stmt 1 view .LVU11
+  69              		.loc 1 9 23 is_stmt 0 view .LVU12
+  70 0018 0130     		adds	r0, r0, #1
+  71              	.LVL6:
+  72              		.loc 1 9 23 view .LVU13
+  73 001a FFF7FEFF 		bl	atof
+  74              	.LVL7:
+  10:Src/Gps.c     ****         *timer = (uint32_t)timef;
+  75              		.loc 1 10 9 is_stmt 1 view .LVU14
+   9:Src/Gps.c     ****         float timef = atof(nmeaGga);
+  76              		.loc 1 9 15 is_stmt 0 view .LVU15
+  77 001e 51EC100B 		vmov	r0, r1, d0
+  78 0022 FFF7FEFF 		bl	__aeabi_d2f
+  79              	.LVL8:
+  80              		.loc 1 10 18 view .LVU16
+  81 0026 07EE900A 		vmov	s15, r0
+  82 002a FCEEE77A 		vcvt.u32.f32	s15, s15
+  83 002e C5ED007A 		vstr.32	s15, [r5]	@ int
+  11:Src/Gps.c     ****         timer = (*timer % 5)*1000;
+  84              		.loc 1 11 9 is_stmt 1 view .LVU17
+  85              	.LVL9:
+  86              	.L1:
+  87              		.loc 1 11 9 is_stmt 0 view .LVU18
+  88              	.LBE2:
+  12:Src/Gps.c     ****     }
+  13:Src/Gps.c     **** }...
+  89              		.loc 1 13 1 view .LVU19
+  90 0032 38BD     		pop	{r3, r4, r5, pc}
+  91              	.LVL10:
+  92              	.L9:
+  93              		.loc 1 13 1 view .LVU20
+  94              		.align	2
+  95              	.L8:
+  96 0034 00000000 		.word	.LC0
+  97              		.cfi_endproc
+  98              	.LFE3:
+ 100              		.section	.rodata.GgaTimeReception.str1.4,"aMS",%progbits,1
+ARM GAS  /tmp/cchIjHjQ.s 			page 3
+
+
+ 101              		.align	2
+ 102              	.LC0:
+ 103 0000 24475047 		.ascii	"$GPGGA\000"
+ 103      474100
+ 104              		.text
+ 105              	.Letext0:
+ 106              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 107              		.file 3 "/usr/arm-none-eabi/include/sys/lock.h"
+ 108              		.file 4 "/usr/arm-none-eabi/include/sys/_types.h"
+ 109              		.file 5 "/usr/lib/gcc/arm-none-eabi/8.2.0/include/stddef.h"
+ 110              		.file 6 "/usr/arm-none-eabi/include/sys/reent.h"
+ 111              		.file 7 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 112              		.file 8 "/usr/arm-none-eabi/include/stdlib.h"
+ 113              		.file 9 "/usr/arm-none-eabi/include/string.h"
+ARM GAS  /tmp/cchIjHjQ.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Gps.c
+     /tmp/cchIjHjQ.s:19     .text.GgaTimeReception:0000000000000000 $t
+     /tmp/cchIjHjQ.s:28     .text.GgaTimeReception:0000000000000000 GgaTimeReception
+     /tmp/cchIjHjQ.s:96     .text.GgaTimeReception:0000000000000034 $d
+     /tmp/cchIjHjQ.s:101    .rodata.GgaTimeReception.str1.4:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_d2f
+strstr
+strchr
+atof
