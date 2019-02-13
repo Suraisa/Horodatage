@@ -4,13 +4,6 @@
 #include <stdio.h>
 #include "stm32f0xx_hal_gpio.h"
 
-
-typedef struct
-{
-    uint8_t seconds;
-    uint16_t milliseconds;
-}TIME;
-
-TIME GgaTimeReception(char* nmea);
+uint32_t GgaTimeReception(char* nmea);
 
 #endif
