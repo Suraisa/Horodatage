@@ -112,7 +112,6 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,12 +121,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    if(HAL_UART_Receive(&huart2, message, 79, 1000) == HAL_OK)
+
+    if(HAL_UART_Receive(&huart2, message, 79, 30) == HAL_OK)
     {
       if((token = GgaStringTime(message)) != NULL)
       {
-        HAL_UART_Transmit(&huart2, token, 10, 1000);
-        HAL_UART_Transmit(&huart2, "\n", 1, 1000);
+        HAL_UART_Transmit(&huart2, token, 10, 30);
+        HAL_UART_Transmit(&huart2, "\n", 1, 30);
       }
     }
   }
