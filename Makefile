@@ -53,6 +53,9 @@ flash_file:
 	openocd -f openocd/st_nucleo_$(BOARD).cfg -c "program local.bin exit 0x08000000 reset"
 	@echo -e "${vert_gras}+--------[ Transfert du fichier local terminé ]---------+ ${fin}"
 
+activeNtp:
+	@bash script/ActiveNtp
+
 doc:
 	qpdfview $(DOC_DIR)/stm32$(BOARD)_doc.pdf &
 

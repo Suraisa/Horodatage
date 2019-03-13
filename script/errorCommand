@@ -1,0 +1,6 @@
+timedatectl set-ntp false
+date +%s%N >> "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/../data/errorOutput
+ntptime | grep -m2 maximum | tail -n1 >>"$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/../data/errorOutput
+timedatectl set-ntp true
+date +%s%N >> "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/../data/errorOutput
+echo -e \ >> "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/../data/errorOutput
