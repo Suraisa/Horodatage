@@ -1,17 +1,34 @@
 import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.CvType;
-import org.opencv.core.Scalar;
+import org.opencv.highgui.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import java.awt.FlowLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 class App {
   static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
-  public static void main(String[] args) {
-    System.out.println("Welcome to OpenCV " + Core.VERSION);
-    Mat m = new Mat(5, 10, CvType.CV_8UC1, new Scalar(0));
-    System.out.println("OpenCV Mat: " + m);
-    Mat mr1 = m.row(1);
-    mr1.setTo(new Scalar(1));
-    Mat mc5 = m.col(5);
-    mc5.setTo(new Scalar(5));
-    System.out.println("OpenCV Mat data:\n" + m.dump());
+
+  public static void main(String[] args)
+  {
+    ImageSubtitled img = new ImageSubtitled("img/fractale.png", "img/sub_fractale.png", "img/fractale.sub");
+    JFrame frame = HighGui.createJFrame("window", HighGui.WINDOW_AUTOSIZE );
+    frame.setLayout(new FlowLayout());
+    frame.setTitle("Horodatage");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    ImageIcon guy = new ImageIcon("img/sub_fractale.png");
+    JLabel pn = new JLabel(guy);
+    JButton bouton = new JButton("Cliquez ici !");
+    frame.add(pn);
+    frame.add(bouton);
+
+    frame.pack();
+    frame.setVisible(true);
+
+
+    
+    // // HighGui.imshow("window", img.GetImage());
+    // HighGui.waitKey(0);
   }
 }

@@ -10,13 +10,13 @@ vert = \033[0;32m
 
 c:
 	@echo -e "${vert_gras}+--------------------[ Compilation ]--------------------+ ${fin}"
-	javac -classpath $(LIB)/*.jar $(SRC)/$(FILE_PROJECT).java
+	javac -classpath $(LIB)/*.jar  $(SRC)/*.java
 	@echo -e "${vert_gras}+----------------[ Compilation terminée ]---------------+ ${fin}"
 
 e:
-	@echo -e "${vert}+--------------------[ Exécution ]--------------------+ ${fin}"
+	@echo -e "${vert_gras}+--------------------[ Exécution ]--------------------+ ${fin}"
 	java -Djava.library.path=$(LIB_DIRECTORIES) -classpath $(SRC):$(LIB)/* $(FILE_PROJECT)
-	@echo -e "${vert}+----------------[ Exécution terminée ]---------------+ ${fin}"
+	@echo -e "${vert_gras}+----------------[ Exécution terminée ]---------------+ ${fin}"
 
 ce :
 	make c
