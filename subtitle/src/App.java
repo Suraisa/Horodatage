@@ -14,7 +14,7 @@ class App {
   }
 
   public static void main(String[] args) {
-    ImageSubtitled img = new ImageSubtitled("img/fractale.png", "img/sub_fractale.png", "img/fractale.sub");
+    //ImageSubtitled img = new ImageSubtitled("img/fractale.png", "img/sub_fractale.png", "img/fractale.sub");
 
     // ImageIcon guy = new ImageIcon("img/sub_fractale.png");
     // JLabel pn = new JLabel(guy);

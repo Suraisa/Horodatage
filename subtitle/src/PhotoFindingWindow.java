@@ -1,27 +1,62 @@
+import java.awt.Component;
+import java.awt.HeadlessException;
+import java.awt.Window;
 import java.io.File;
-
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import org.opencv.videoio.VideoCapture;
 
 class PhotoFindingWindow implements ActionManager
 {
-    JFileChooser fileChooser = new JFileChooser();
-    File[] files = new File[3];
+    private JFileChooser fileChooser;
+    private File[] files = new File[2];
+    private JFrame window;
+    private ImageSubtitled subtitleProcess;
 
-    private void getFile()
+    public PhotoFindingWindow(JFrame frame)
     {
-        int returnVal = fileChooser.showOpenDialog(ChooseWindow.this);
+        this.window = frame;
+    }
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fc.getSelectedFile();
-            //This is where a real application would open the file.
-            log.append("Opening: " + file.getName() + "." + newline);
-        } else {
-            log.append("Open command cancelled by user." + newline);
+    private File getFile(JLabel info)
+    {
+        File file = null;
+        int returnVal = 0;
+        fileChooser = new JFileChooser();
+
+        try
+        {
+            returnVal = fileChooser.showOpenDialog(window);
+        }catch(HeadlessException e)
+        {
+            returnVal = -1;
+        }
+        finally
+        {
+            if (returnVal == JFileChooser.APPROVE_OPTION)
+            {
+                file = fileChooser.getSelectedFile();
+                info.setText("File " + file.getPath() + " choosed");
+            }
+            else
+            {
+                info.setText("Can't open the file");
+            }
+            return file;
         }
     }
 
     @Override
-    public void actionControler()
+    public void actionControler(JLabel info)
     {
+        int i;
+        for (i = 0; i < files.length; i++)
+        {
+            files[i] = getFile(info);
+            info.setText("Get: " + files[i].getName());
+        }
+        subtitleProcess = new ImageSubtitled(files[0].getPath(), files[0].getPath().replaceFirst("[.][^.]+$", "") + "Sub.png", files[1].getPath());
     }
 }

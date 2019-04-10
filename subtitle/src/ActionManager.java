@@ -1,4 +1,6 @@
+import javax.swing.JLabel;
+
 interface ActionManager
 {
-    void actionControler();
+    void actionControler(JLabel info);
 }

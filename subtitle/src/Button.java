@@ -2,15 +2,28 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 class Button extends JButton implements MouseListener
 {
+    private JLabel info;
     private ActionManager action;
-    public Button(String name, ActionManager action)
+    public Button(String name)
     {
         super(name);
         this.addMouseListener(this);
+    }
+
+    public Button(String name, ActionManager action)
+    {
+        this(name);
         this.action = action;
+    }
+
+    public Button(String name, ActionManager action, JLabel info)
+    {
+        this(name, action);
+        this.info = info;
     }
 
     public void setAction(ActionManager action)
@@ -21,7 +34,7 @@ class Button extends JButton implements MouseListener
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        this.action.actionControler();
+        this.action.actionControler(this.info);
     }
 
     @Override
