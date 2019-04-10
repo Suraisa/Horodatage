@@ -10,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-
-
 class ImageSubtitled
 {
     private Mat img;
@@ -28,17 +26,17 @@ class ImageSubtitled
         {
             file = new FileReader(subtitledFile);
             buffer = new BufferedReader(file);
-            
+
             String lineBuffer = null;
 
             this.subtitle = lineBuffer;
 
             while ((lineBuffer = buffer.readLine()) != null)
             {
-                this.subtitle += "\n"+lineBuffer;
-			}
+                this.subtitle += "\n" + lineBuffer;
+            }
         }
-        catch(IOException error)
+        catch (IOException error)
         {
             error.printStackTrace();
         }
@@ -54,13 +52,13 @@ class ImageSubtitled
 
                 if (file != null)
                 {
-                    file.close();                    
+                    file.close();
                 }
-            } 
-            
-            catch (IOException ex) 
+            }
+
+            catch (IOException ex)
             {
-				ex.printStackTrace();
+                ex.printStackTrace();
             }
         }
         putTextLineHandle();
@@ -79,19 +77,19 @@ class ImageSubtitled
 
     private void putTextLineHandle()
     {
-        if(this.subtitle != null)
+        if (this.subtitle != null)
         {
-        
+
             Size imgSize = this.img.size();
-            double y0 = imgSize.height-8;
+            double y0 = imgSize.height - 8;
             double dy = 15;
             String[] lines = this.subtitle.split("\n");
 
             int index;
-            for(index = lines.length-1; index>0; index--)
+            for (index = lines.length - 1; index > 0; index--)
             {
-                Imgproc.putText(this.img, lines[index], new Point(5, y0-dy*(lines.length-1-index)), 4, 0.5, new Scalar(0,0,255));
-
+                Imgproc.putText(this.img, lines[index], new Point(5, y0 - dy * (lines.length - 1 - index)), 4, 0.5,
+                    new Scalar(0, 0, 255));
             }
         }
     }
@@ -103,12 +101,12 @@ class ImageSubtitled
         {
             type = BufferedImage.TYPE_3BYTE_BGR;
         }
-        int bufferSize = m.channels()*m.cols()*m.rows();
+        int bufferSize = m.channels() * m.cols() * m.rows();
         byte[] b = new byte[bufferSize];
         m.get(0, 0, b); // get all the pixels
         BufferedImage image = new BufferedImage(m.cols(), m.rows(), type);
-        final byte[] targetPixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
-        System.arraycopy(b, 0, targetPixels, 0, b.length);  
+        final byte[] targetPixels = ((DataBufferByte)image.getRaster().getDataBuffer()).getData();
+        System.arraycopy(b, 0, targetPixels, 0, b.length);
         return image;
     }
 

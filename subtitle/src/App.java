@@ -7,27 +7,22 @@ import java.awt.FlowLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 class App {
-  static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
+  static {
+    System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+  }
 
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
     ImageSubtitled img = new ImageSubtitled("img/fractale.png", "img/sub_fractale.png", "img/fractale.sub");
-    JFrame frame = HighGui.createJFrame("window", HighGui.WINDOW_AUTOSIZE );
-    frame.setLayout(new FlowLayout());
-    frame.setTitle("Horodatage");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    ImageIcon guy = new ImageIcon("img/sub_fractale.png");
-    JLabel pn = new JLabel(guy);
-    JButton bouton = new JButton("Cliquez ici !");
-    frame.add(pn);
-    frame.add(bouton);
 
-    frame.pack();
-    frame.setVisible(true);
+    // ImageIcon guy = new ImageIcon("img/sub_fractale.png");
+    // JLabel pn = new JLabel(guy);
+    // frame.add(pn);
 
 
-    
+    // frame.pack();
+    ChooseWindow window = new ChooseWindow();
     // // HighGui.imshow("window", img.GetImage());
     // HighGui.waitKey(0);
   }

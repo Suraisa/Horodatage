@@ -1,0 +1,4 @@
+interface ActionManager
+{
+    void actionControler();
+}
