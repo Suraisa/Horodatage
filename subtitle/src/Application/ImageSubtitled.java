@@ -1,16 +1,19 @@
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
-import org.opencv.core.Mat;
-import org.opencv.imgcodecs.*;
-import org.opencv.imgproc.Imgproc;
+package Application;
 
-import java.awt.image.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-class ImageSubtitled
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+
+public class ImageSubtitled
 {
     private Mat img;
     private String subtitle;

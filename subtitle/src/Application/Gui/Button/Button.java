@@ -1,10 +1,12 @@
+package Application.Gui.Button;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-class Button extends JButton implements MouseListener
+public class Button extends JButton implements MouseListener
 {
     private JLabel info;
     private ActionManager action;

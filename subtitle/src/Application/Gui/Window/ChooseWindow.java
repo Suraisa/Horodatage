@@ -1,3 +1,8 @@
+package Application.Gui.Window;
+
+import Application.Gui.Button.*;
+import Application.Gui.Button.Strategy.*;
+
 import org.opencv.highgui.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,7 +13,7 @@ import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-class ChooseWindow
+public class ChooseWindow
 {
     private JFrame frame;
     private Button photoButton;

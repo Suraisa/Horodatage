@@ -1,3 +1,8 @@
+package Application.Gui.Button.Strategy;
+
+import Application.Gui.Button.*;
+import Application.*;
+
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.awt.Window;
@@ -5,10 +10,13 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import org.opencv.core.Mat;
+import org.opencv.highgui.HighGui;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
+import org.opencv.videoio.Videoio;
 
-class PhotoFindingWindow implements ActionManager
+public class PhotoFindingWindow implements ActionManager
 {
     private JFileChooser fileChooser;
     private File[] files = new File[2];
@@ -44,8 +52,8 @@ class PhotoFindingWindow implements ActionManager
             {
                 info.setText("Can't open the file");
             }
-            return file;
         }
+        return file;
     }
 
     @Override

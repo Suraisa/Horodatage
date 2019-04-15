@@ -1,6 +1,8 @@
+package Application.Gui.Button;
+
 import javax.swing.JLabel;
 
-interface ActionManager
+public interface ActionManager
 {
     void actionControler(JLabel info);
 }
