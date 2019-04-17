@@ -21,6 +21,10 @@ public final class ComputerCommandWindow implements WindowCreator
         frame.add(buttonPhoto, BorderLayout.CENTER);
         frame.add(buttonReturn, BorderLayout.SOUTH);
         frame.add(infoLabel, BorderLayout.SOUTH);
+        frame.revalidate();
+        frame.repaint();
+        frame.setVisible(true);
+
         return infoLabel;
     }
 }

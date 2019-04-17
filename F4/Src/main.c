@@ -124,14 +124,14 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-    /* if(HAL_UART_Receive(&huart2, message, 79, 30) == HAL_OK)
+     if(HAL_UART_Receive(&huart2, message, 79, 30) == HAL_OK)
     {
       if((token = GgaStringTime(message)) != NULL)
       {
         HAL_UART_Transmit(&huart2, token, 10, 30);
         HAL_UART_Transmit(&huart2, "\n", 1, 30);
       }
-    } */
+    }
   }
   /* USER CODE END 3 */
 }

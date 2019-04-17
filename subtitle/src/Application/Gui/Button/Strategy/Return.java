@@ -14,7 +14,6 @@ public class Return extends ActionManager
 
     public JLabel actionControler(JLabel info)
     {
-        JLabel newInfo = new HomeWindow().CreateWindow(frame);
-        return newInfo;
+        return new HomeWindow().CreateWindow(frame);
     }
 }
