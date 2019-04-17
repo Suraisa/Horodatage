@@ -3453,7 +3453,7 @@
 											"top": 95,
 											"width": 133.453125,
 											"height": 13,
-											"text": "PhotoFindingWindow"
+											"text": "PhotoFinding"
 										},
 										{
 											"_type": "LabelView",
@@ -7050,7 +7050,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFp4pLt8Jx2MQw="
 					},
-					"name": "PhotoFindingWindow",
+					"name": "PhotoFinding",
 					"ownedElements": [
 						{
 							"_type": "UMLInterfaceRealization",
