@@ -91,6 +91,8 @@ int main(void)
   /* USER CODE BEGIN 1 */
   char message[80] = "\0";
   char* token;
+  uint16_t data;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -114,16 +116,59 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,0);
+  int i=0;
   while (1)
   {
+  data = 0x0C01;
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_SPI_Transmit(&hspi2, &data,1 ,10);
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_Delay(1);
+/* 
+  data = 0x0aff;
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_SPI_Transmit(&hspi2, &data,1 ,10);
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_Delay(1);
+ */
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  data = 0x0b07;
+  HAL_SPI_Transmit(&hspi2, &data,1 ,10);
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_Delay(1);
+
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  data = 0x09ff;
+  HAL_SPI_Transmit(&hspi2, &data,1 ,10);
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_Delay(1);
+
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  /* data = 0x0100 | (i%10);
+  i++; */
+  data = 0x0105;
+  HAL_SPI_Transmit(&hspi2, &data,1 ,10);
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  HAL_Delay(1);
+
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+  data = 0x0c01;
+  HAL_SPI_Transmit(&hspi2, &data,1 ,10);
+  HAL_GPIO_TogglePin(CS_GPIO_Port,CS_Pin);
+
+
+  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+    //on fait un test qui affiche 123 sur le panneau de led
+    
     /* if(HAL_UART_Receive(&huart2, message, 79, 30) == HAL_OK)
     {
       if((token = GgaStringTime(message)) != NULL)
@@ -180,7 +225,11 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void ledTransmit(uint8_t * pdata){
+  HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,0);
+  HAL_SPI_Transmit(&hspi2, pdata,2,10);
+  HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,1);  
+}
 /* USER CODE END 4 */
 
 /**
