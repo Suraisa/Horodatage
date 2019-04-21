@@ -1,6 +1,6 @@
 sudo stty -F "$1" 115200
 
 for line in $(cat $2); do
-	sudo echo -e line >> $1
+	sudo echo -e $line >> $1
 	sleep 1
 done

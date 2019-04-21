@@ -97,6 +97,16 @@ public class ImageSubtitled
         }
     }
 
+    public static void putTextLineHandle(Mat image, String subtitle)
+    {
+        if (subtitle == null)
+        {
+            return;
+        }
+        Imgproc.putText(image, subtitle, new Point(5, 16), 4, 0.5,
+                new Scalar(0, 0, 255));
+    }
+
     public static BufferedImage Mat2BufferedImage(Mat m)
     {
         int type = BufferedImage.TYPE_BYTE_GRAY;

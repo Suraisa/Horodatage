@@ -19,7 +19,7 @@ public final class ComputerCommandWindow implements WindowCreator
         Button buttonPhoto = new Button("Photo", new Photo(frame), infoLabel);
         frame.add(buttonGPS, BorderLayout.CENTER);
         frame.add(buttonPhoto, BorderLayout.CENTER);
-        frame.add(buttonReturn, BorderLayout.SOUTH);
+        frame.add(buttonReturn, BorderLayout.CENTER);
         frame.add(infoLabel, BorderLayout.SOUTH);
         frame.revalidate();
         frame.repaint();
