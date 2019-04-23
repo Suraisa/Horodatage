@@ -4,6 +4,10 @@ import Application.*;
 import Application.Gui.Button.*;
 
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,7 +27,11 @@ public class Photo extends ActionManager
     private JLabel picLabel;
     private Mat image = new Mat();
     private int photoNumber = 0;
-    private long timePassed;
+    private String myObj;
+    private int timeRead = 0;
+    private int minute = 0;
+    private int second = 0;
+    private int milliSecond = 0;
 
     
     public Photo(JFrame frame)
@@ -63,21 +71,26 @@ public class Photo extends ActionManager
     public JLabel actionControler(JLabel info)
     {
         setupCamera();
+        Calendar calendar = Calendar.getInstance();
 
-        camera.read(image);
-        timePassed = System.nanoTime();
         if(fieldNumber == null)
         {
+            myObj = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(calendar.getTimeInMillis());
+            camera.read(image);
             timeCalibration(info);
-            timePassed = System.nanoTime() - timePassed;
-            System.out.println("calibration: " +timePassed);
         }
         else
         {
+            timeRead = Integer.parseInt(fieldNumber.getText());
+            minute = timeRead % 10^6;
+            second = (timeRead - minute*10^6)%10^4;
+            milliSecond = timeRead - minute*10^6 - second*10^4;
+
+            myObj = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(calendar.getTimeInMillis());
+            camera.read(image);
             takeTimedPhoto();
-            timePassed = System.nanoTime() - timePassed;
-            System.out.println("\nTime passed: "+timePassed);
         }
+
         image = new Mat();
         camera.release();
         camera = null;
