@@ -14,8 +14,8 @@ public final class HomeWindow implements WindowCreator
     {
         frame.getContentPane().removeAll();
         JLabel infoLabel = new JLabel();
-        Button photoButton = new Button("Computer", new Computer(frame), infoLabel);
-        Button videoButton = new Button("Video", new VideoFinding(frame), infoLabel);
+        Button photoButton = new Button("PhotoTreatment", new Computer(frame), infoLabel);
+        Button videoButton = new Button("VideoTreatment", new VideoFinding(frame), infoLabel);
         frame.add(photoButton, BorderLayout.CENTER);
         frame.add(videoButton, BorderLayout.CENTER);
         frame.add(infoLabel, BorderLayout.SOUTH);

@@ -4,9 +4,9 @@ import Application.Gui.Button.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Gps extends ActionManager
+public class PhotoIntervalle extends ActionManager
 {
-    public Gps(JFrame frame)
+    public PhotoIntervalle(JFrame frame)
     {
         super(frame);
     }
