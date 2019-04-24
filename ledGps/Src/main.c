@@ -96,7 +96,6 @@ int main(void)
   char data[] = "1234";
   char message[80] = "\0";
 
-  HAL_GPIO_WritePin(seg_pin.cs_port,seg_pin.cs_pin,1);
 
   /* USER CODE END 1 */
 
@@ -128,6 +127,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+    HAL_GPIO_WritePin(seg_pin.cs_port,seg_pin.cs_pin,1);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -139,11 +139,10 @@ int main(void)
     {
       if((faketoken = GgaStringTime(message)) != NULL)
       {
+        HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+        HAL_Delay(300);
+        HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
         
-        HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-        HAL_Delay(500);
-        HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-
         writeTime(seg_pin,faketoken,6);
         /*
         HAL_UART_Transmit(&huart2, token, 6, 5);
