@@ -93,7 +93,7 @@ int main(void)
   extern SEG_PIN seg_pin;
   seg_pin.cs_port = CS_GPIO_Port;
   seg_pin.cs_pin = CS_Pin;
-  char data[] = "1234";
+  char data[] = "444";
   char message[80] = "\0";
 
 
