@@ -3,7 +3,6 @@
 #include "7seg.h"
 
 int time;
-char  itime[8];
 SEG_PIN seg_pin;
 
 void setRegister(SEG_PIN pin, uint8_t reg,uint8_t val){

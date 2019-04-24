@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "7seg.h": "c",
+        "tim.h": "c",
+        "spi.h": "c",
+        "main.h": "c"
+    }
+}

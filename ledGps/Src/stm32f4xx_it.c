@@ -38,10 +38,10 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tim.c"
+#include "tim.h"
 #include "7seg.h"
 
-extern float time;
+extern int time;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -231,7 +231,6 @@ void TIM3_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-extern char itime[8];
 extern SEG_PIN seg_pin;
 
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin){

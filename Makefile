@@ -1,6 +1,6 @@
 BOARD=f4
-PROJECT_DIR=testSPI
-PROJECT_NAME=testSPI
+PROJECT_DIR=ledGps
+PROJECT_NAME=ledGps
 DOC_DIR= /home/$(USER)/STM32Cube/
 
 rouge = \033[0;31m
