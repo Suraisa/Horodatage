@@ -139,12 +139,12 @@ int main(void)
     {
       if((faketoken = GgaStringTime(message)) != NULL)
       {
-        HAL_UART_Transmit(&huart2,faketoken,6,10);/* 
+        
         HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
         HAL_Delay(500);
         HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
 
-        writeTime(seg_pin,faketoken,6); */
+        writeTime(seg_pin,faketoken,6);
         /*
         HAL_UART_Transmit(&huart2, token, 6, 5);
         HAL_UART_Transmit(&huart2, "\n", 1, 5);
