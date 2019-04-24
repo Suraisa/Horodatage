@@ -135,7 +135,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
     //get gps time
     //on timer tic write uart2
-    if(HAL_UART_Receive(&huart2, message, 79, 30) == HAL_OK)
+    if(HAL_UART_Receive(&huart1, message, 79, 30) == HAL_OK)
     {
       if((faketoken = GgaStringTime(message)) != NULL)
       {
