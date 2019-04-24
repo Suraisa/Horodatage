@@ -139,7 +139,7 @@ int main(void)
     {
       if((faketoken = GgaStringTime(message)) != NULL)
       {
-        writeTime(seg_pin,faketoken,6);
+        writeTime(seg_pin,data,3);
         /*
         HAL_UART_Transmit(&huart2, token, 6, 5);
         HAL_UART_Transmit(&huart2, "\n", 1, 5);
