@@ -29,7 +29,7 @@ void writeTime(SEG_PIN pin , uint8_t * time, uint8_t nbTime){
     //time print begin
     int i;
     for (i = 0; i<nbTime;i++){
-        setRegister(pin, i+1, time[i]);
+        setRegister(pin, i+1, time[nbTime-1-i]);
     }
     //time print end
     setRegister(pin , REG_SHUTDOWN,VAL_ON);
