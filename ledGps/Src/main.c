@@ -130,7 +130,6 @@ int main(void)
     HAL_GPIO_WritePin(seg_pin.cs_port,seg_pin.cs_pin,1);
   while (1)
   {
-    writeTime(seg_pin,data,3);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -140,7 +139,6 @@ int main(void)
     {
       if((faketoken = GgaStringTime(message)) != NULL)
       {
-        
         writeTime(seg_pin,faketoken,6);
         /*
         HAL_UART_Transmit(&huart2, token, 6, 5);
