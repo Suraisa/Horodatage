@@ -130,6 +130,7 @@ int main(void)
     HAL_GPIO_WritePin(seg_pin.cs_port,seg_pin.cs_pin,1);
   while (1)
   {
+    writeTime(seg_pin,data,3);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
