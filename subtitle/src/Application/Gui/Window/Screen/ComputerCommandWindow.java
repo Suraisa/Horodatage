@@ -14,7 +14,7 @@ public final class ComputerCommandWindow implements WindowCreator
     {
         frame.getContentPane().removeAll();
         JLabel infoLabel = new JLabel("<html>L'intervalle te permet de régler à la main<br>Le temps d'erreur de la photo.<br><br>"
-            + "Etalonnage te permet de régler le temps avec une<br> source de temps externe (supposée absolue)</html>");
+            + "Etalonnage te permet de régler le temps avec une<br> source de temps externe (supposée absolue)<br>Format d'écriture : mssSSS<br>m : minute<br>s : seconde <br>S : millisecond</html>");
         Button buttonGPS = new Button("Intervalle", new PhotoIntervalle(frame), infoLabel);
         Button buttonReturn = new Button("Retour", new Return(frame), infoLabel);
         Button buttonPhoto = new Button("Etalonnage", new PhotoEtalonnage(frame), infoLabel);

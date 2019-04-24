@@ -22,7 +22,7 @@ public class ChooseWindow
         frame.setLayout(new FlowLayout());
         frame.setTitle("Horodatage");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 180);
+        frame.setSize(400, 200);
 
         info = new HomeWindow().CreateWindow(frame);
 
