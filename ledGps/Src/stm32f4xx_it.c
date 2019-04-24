@@ -81,7 +81,7 @@ extern TIM_HandleTypeDef htim3;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M4 Processor Interruption and Exception Handlers          */
+/*           Cortex-M4 Processor Interruption and Exception Handlers          */ 
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -231,7 +231,6 @@ void TIM3_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-extern SEG_PIN seg_pin;
 
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin){
   switch (GPIO_Pin){

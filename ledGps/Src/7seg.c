@@ -3,7 +3,7 @@
 #include "7seg.h"
 
 int time;
-SEG_PIN seg_pin;
+SEG_PIN seg_pin = { .cs_port = CS_GPIO_Port, .cs_pin = CS_Pin};
 
 void setRegister(SEG_PIN pin, uint8_t reg,uint8_t val){
     uint16_t data  = reg<<8 | val;
