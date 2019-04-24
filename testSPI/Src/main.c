@@ -46,7 +46,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "7seg.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,8 +88,12 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  SEG_PIN seg_pin;
+  seg_pin.cs_port = CS_GPIO_Port;
+  seg_pin.cs_pin = CS_Pin;
+  uint8_t  time[]={ 49,50,51};
   /* USER CODE END 1 */
+  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -112,6 +116,8 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(seg_pin.cs_port,seg_pin.cs_pin,1);
+  setupSeg();
   uint8_t data = 0x5;
   /* USER CODE END 2 */
 
@@ -119,14 +125,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_Delay(100);
+  HAL_Delay(1);
+    /* HAL_Delay(100);
 
     HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,1);
     HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,0);
 
     HAL_SPI_Transmit(&hspi2, &data,1,100);
 
-    HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,1);
+    HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,1); */
+
+    writeTime(seg_pin , time, 3);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -143,11 +153,11 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /**Configure the main internal regulator output voltage 
+  /** Configure the main internal regulator output voltage 
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
-  /**Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -162,7 +172,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /**Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
