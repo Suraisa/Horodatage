@@ -139,9 +139,6 @@ int main(void)
     {
       if((faketoken = GgaStringTime(message)) != NULL)
       {
-        HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-        HAL_Delay(300);
-        HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
         
         writeTime(seg_pin,faketoken,6);
         /*
