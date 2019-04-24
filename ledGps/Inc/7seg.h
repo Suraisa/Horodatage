@@ -30,7 +30,7 @@ typedef struct seg_pin{
     //uint16_t miso_pin;
     //uint16_t clk_pin;
 } SEG_PIN;
-
+extern char itime[8];
 //functions
 void setRegister(SEG_PIN pin, uint8_t reg,uint8_t val);
 void setupSeg(SEG_PIN pin);

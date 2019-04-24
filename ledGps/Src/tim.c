@@ -160,18 +160,17 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 }
 
 /* USER CODE BEGIN 1 */
-extern char * itime;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (0)//htim->Instance==TIM3) //check if the interrupt comes from TIM3
         {
           //time ++
-          time += 1; //delta t
-          i2ui(itime+2,6,time);
-          // send DATA spi
+          // time += 1; //delta t
+          // i2ui(itime+2,6,time);
+          // // send DATA spi
           
-          wT(seg_pin, itime,2,6);
+          // wT(seg_pin, itime,2,6);
 
 /*         //uart
         HAL_UART_Transmit(&huart2, token, 6, 1);

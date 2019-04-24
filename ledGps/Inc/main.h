@@ -62,7 +62,8 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+extern char* token;
+extern char * faketoken;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

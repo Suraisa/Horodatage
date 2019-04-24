@@ -95,8 +95,7 @@ int main(void)
   seg_pin.cs_pin = CS_Pin;
   char data[] = "1234";
   char message[80] = "\0";
-  extern char* token;
-  extern char * faketoken;
+
   HAL_GPIO_WritePin(seg_pin.cs_port,seg_pin.cs_pin,1);
 
   /* USER CODE END 1 */
