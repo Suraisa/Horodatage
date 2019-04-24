@@ -17,7 +17,7 @@
 #define VAL_ON 01
 #define VAL_OFF 00
 
-#define VAL_SCANL 2
+#define VAL_SCANL 3
 
 #include "spi.h"
 //pin struct

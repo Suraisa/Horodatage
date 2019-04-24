@@ -32,6 +32,7 @@ public class PhotoEtalonnage extends ActionManager
     private long milliSecond = 0;
     private boolean timeSetup = false;
     private Calendar calendar;
+    private long time = System.nanoTime();
 
     public PhotoEtalonnage(JFrame frame)
     {
@@ -96,9 +97,11 @@ public class PhotoEtalonnage extends ActionManager
             setReadTime();
             timeSetup = true;
         }
+        
         calendar = Calendar.getInstance();
         globalTime = calendar.getTimeInMillis();
         camera.read(image);
+
         if (fieldNumber == null)
         {
             timeCalibration(info);

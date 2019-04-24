@@ -24,13 +24,13 @@ void setupSeg(SEG_PIN pin){
 void writeTime(SEG_PIN pin , uint8_t * time, uint8_t nbTime){
     //a tester si val_on ou val off pour la ligne suivante
     setRegister(pin, REG_SHUTDOWN,VAL_OFF);
-    setRegister(pin, REG_SCAN_LIMIT, VAL_SCANL);
-    setRegister(pin, REG_CODE,0b0111);
+    setRegister(pin, REG_SCAN_LIMIT, nbTime-1);
+    setRegister(pin, REG_CODE,0b11111111);
 
     //time print begin
     int i;
     for (i = 0; i<nbTime;i++){
-        setRegister(pin, i, time[i]);
+        setRegister(pin, i+1, time[i]);
     }
     //time print end
     setRegister(pin , REG_SHUTDOWN,VAL_ON);
