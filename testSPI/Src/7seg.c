@@ -25,7 +25,7 @@ void writeTime(SEG_PIN pin , uint8_t * time, uint8_t nbTime){
     //a tester si val_on ou val off pour la ligne suivante
     setRegister(pin, REG_SHUTDOWN,VAL_OFF);
     setRegister(pin, REG_SCAN_LIMIT, nbTime-1);
-    setRegister(pin, REG_CODE,0b11111111);
+    setRegister(pin, REG_CODE,0b111111);
 
     //time print begin
     int i;

@@ -91,7 +91,7 @@ int main(void)
     SEG_PIN seg_pin;
     seg_pin.cs_port = CS_GPIO_Port;
     seg_pin.cs_pin = CS_Pin;
-    uint8_t time[] = { 49, 50, 51, 52, 53, 54, 55, 56 };
+    uint8_t time[] = { 49, 50, 51, 52, 53, 54 };
     /* USER CODE END 1 */
 
     /* MCU Configuration--------------------------------------------------------*/
@@ -133,7 +133,7 @@ int main(void)
 
     HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,1); */
 
-        writeTime(seg_pin, time, 8);
+        writeTime(seg_pin, time, 6);
 
         /* USER CODE END WHILE */
 
