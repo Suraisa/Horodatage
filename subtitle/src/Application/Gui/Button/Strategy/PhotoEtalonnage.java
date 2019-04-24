@@ -63,8 +63,6 @@ public class PhotoEtalonnage extends ActionManager
     {
         ImageSubtitled.putTextLineHandle(image, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(globalTime));
         picLabel = new JLabel(new ImageIcon(ImageSubtitled.Mat2BufferedImage(image)));
-        // JOptionPane.showMessageDialog(null, picLabel, "result",
-        // JOptionPane.PLAIN_MESSAGE, null);
         Imgcodecs.imwrite("img/photo_" + photoNumber + ".png", image);
     }
 
@@ -108,6 +106,7 @@ public class PhotoEtalonnage extends ActionManager
         else
         {
             setTime();
+            globalTime = calendar.getTimeInMillis();
             takeTimedPhoto();
         }
 
