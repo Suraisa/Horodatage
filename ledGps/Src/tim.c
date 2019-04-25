@@ -153,24 +153,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
         {
             time = 0;
         }
-        /* i2ui(iTime + 2, 6, time);
-        ui2c(iTime + 2, iTime + 2, 6); */
         // send DATA spi
         sprintf(str, "%05d", time);
 
 
-        /* token[3 + 1] = str[0];
-        token[3 + 2] = str[1]; */
         token[3 + 3] = str[2];
         token[3 + 4] = str[3];
         token[3 + 5] = str[4];
-/*         HAL_UART_Transmit(&huart2 , str , 5,5);
-        HAL_UART_Transmit(&huart2 ,"\n" , 1,5); */
 
         wT(seg_pin, token + 3, 0, 6);
-
-        //writeTime(seg_pin, str,6);
-        //wT(seg_pin, iTime,2,6);
     }
 }
 /* USER CODE END 1 */

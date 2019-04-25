@@ -49,9 +49,7 @@
 /* USER CODE BEGIN Includes */
 #include "7seg.h"
 #include "Gps.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,17 +88,6 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
-
- void myMemCpy(void *dest, void *src, size_t n) 
-{ 
-   // Typecast src and dest addresses to (char *) 
-   char *csrc = (char *)src; 
-   char *cdest = (char *)dest; 
-  
-   // Copy contents of src[] to dest[] 
-   for (int i=0; i<n; i++) 
-       cdest[i] = csrc[i]; 
-} 
 
 char message[80] = "\0";
 int main(void)
@@ -158,7 +145,6 @@ int main(void)
                 memcpy(token, ggaParsed, 6*sizeof(char));
                 __enable_irq();
                 
-                //writeTime(seg_pin, token, 6);
             }
         }
     }

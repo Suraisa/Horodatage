@@ -263,12 +263,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         token[2 + 5] = '0';
         token[2 + 6] = '0';
         //envoie spi mfker
-        //HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
         wT(seg_pin, token + 3, 0, 6);
-        // HAL_UART_Transmit(&huart2, token+2, 4, 5);
-        // HAL_UART_Transmit(&huart2, "\n", 1, 5);
-        // HAL_UART_Transmit(&huart2, "000", 3, 5);
-        //reset timer ?
         break;
     }
 }
