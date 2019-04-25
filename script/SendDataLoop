@@ -3,7 +3,6 @@ sudo stty -F "$1" 115200
 while :
 do
 	for line in $(cat $2); do
-		echo $line
 		sudo echo -e $line >> $1
 		sleep 1
 	done

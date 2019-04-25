@@ -257,7 +257,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
         //front montant du pin pps du gps :: indique la seconde du ledGps
         c2ui(token + 2, iTime, 4);
-        time = ui2i(iTime + 2, 2) * 1000; //time en 1 milis secondes
+        time = ui2i(iTime + 2, 2) * 1000+8; //time en 1 milis secondes
 
         token[2 + 4] = '0';
         token[2 + 5] = '0';
