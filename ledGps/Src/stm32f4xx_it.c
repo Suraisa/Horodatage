@@ -34,14 +34,17 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 #include "stm32f4xx_it.h"
+#include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "tim.h"
 #include "7seg.h"
+#include "tim.h"
+#include "usart.h"
+#include <stdio.h>
 
-extern int time;
+extern volatile int time;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,19 +84,19 @@ extern TIM_HandleTypeDef htim3;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M4 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M4 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
   */
 void NMI_Handler(void)
 {
-  /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+    /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
 
-  /* USER CODE END NonMaskableInt_IRQn 0 */
-  /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+    /* USER CODE END NonMaskableInt_IRQn 0 */
+    /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
 
-  /* USER CODE END NonMaskableInt_IRQn 1 */
+    /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
 /**
@@ -101,14 +104,14 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
-  /* USER CODE BEGIN HardFault_IRQn 0 */
+    /* USER CODE BEGIN HardFault_IRQn 0 */
 
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
+    /* USER CODE END HardFault_IRQn 0 */
+    while (1)
+    {
+        /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+        /* USER CODE END W1_HardFault_IRQn 0 */
+    }
 }
 
 /**
@@ -116,14 +119,14 @@ void HardFault_Handler(void)
   */
 void MemManage_Handler(void)
 {
-  /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+    /* USER CODE BEGIN MemoryManagement_IRQn 0 */
 
-  /* USER CODE END MemoryManagement_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
-    /* USER CODE END W1_MemoryManagement_IRQn 0 */
-  }
+    /* USER CODE END MemoryManagement_IRQn 0 */
+    while (1)
+    {
+        /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+        /* USER CODE END W1_MemoryManagement_IRQn 0 */
+    }
 }
 
 /**
@@ -131,14 +134,14 @@ void MemManage_Handler(void)
   */
 void BusFault_Handler(void)
 {
-  /* USER CODE BEGIN BusFault_IRQn 0 */
+    /* USER CODE BEGIN BusFault_IRQn 0 */
 
-  /* USER CODE END BusFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_BusFault_IRQn 0 */
-    /* USER CODE END W1_BusFault_IRQn 0 */
-  }
+    /* USER CODE END BusFault_IRQn 0 */
+    while (1)
+    {
+        /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+        /* USER CODE END W1_BusFault_IRQn 0 */
+    }
 }
 
 /**
@@ -146,14 +149,14 @@ void BusFault_Handler(void)
   */
 void UsageFault_Handler(void)
 {
-  /* USER CODE BEGIN UsageFault_IRQn 0 */
+    /* USER CODE BEGIN UsageFault_IRQn 0 */
 
-  /* USER CODE END UsageFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
-    /* USER CODE END W1_UsageFault_IRQn 0 */
-  }
+    /* USER CODE END UsageFault_IRQn 0 */
+    while (1)
+    {
+        /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+        /* USER CODE END W1_UsageFault_IRQn 0 */
+    }
 }
 
 /**
@@ -161,12 +164,12 @@ void UsageFault_Handler(void)
   */
 void SVC_Handler(void)
 {
-  /* USER CODE BEGIN SVCall_IRQn 0 */
+    /* USER CODE BEGIN SVCall_IRQn 0 */
 
-  /* USER CODE END SVCall_IRQn 0 */
-  /* USER CODE BEGIN SVCall_IRQn 1 */
+    /* USER CODE END SVCall_IRQn 0 */
+    /* USER CODE BEGIN SVCall_IRQn 1 */
 
-  /* USER CODE END SVCall_IRQn 1 */
+    /* USER CODE END SVCall_IRQn 1 */
 }
 
 /**
@@ -174,12 +177,12 @@ void SVC_Handler(void)
   */
 void DebugMon_Handler(void)
 {
-  /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+    /* USER CODE BEGIN DebugMonitor_IRQn 0 */
 
-  /* USER CODE END DebugMonitor_IRQn 0 */
-  /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+    /* USER CODE END DebugMonitor_IRQn 0 */
+    /* USER CODE BEGIN DebugMonitor_IRQn 1 */
 
-  /* USER CODE END DebugMonitor_IRQn 1 */
+    /* USER CODE END DebugMonitor_IRQn 1 */
 }
 
 /**
@@ -187,12 +190,12 @@ void DebugMon_Handler(void)
   */
 void PendSV_Handler(void)
 {
-  /* USER CODE BEGIN PendSV_IRQn 0 */
+    /* USER CODE BEGIN PendSV_IRQn 0 */
 
-  /* USER CODE END PendSV_IRQn 0 */
-  /* USER CODE BEGIN PendSV_IRQn 1 */
+    /* USER CODE END PendSV_IRQn 0 */
+    /* USER CODE BEGIN PendSV_IRQn 1 */
 
-  /* USER CODE END PendSV_IRQn 1 */
+    /* USER CODE END PendSV_IRQn 1 */
 }
 
 /**
@@ -200,13 +203,13 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  /* USER CODE BEGIN SysTick_IRQn 0 */
+    /* USER CODE BEGIN SysTick_IRQn 0 */
 
-  /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-  /* USER CODE BEGIN SysTick_IRQn 1 */
+    /* USER CODE END SysTick_IRQn 0 */
+    HAL_IncTick();
+    /* USER CODE BEGIN SysTick_IRQn 1 */
 
-  /* USER CODE END SysTick_IRQn 1 */
+    /* USER CODE END SysTick_IRQn 1 */
 }
 
 /******************************************************************************/
@@ -217,37 +220,57 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+    /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+
+    /* USER CODE END EXTI9_5_IRQn 0 */
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
+    /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+    /* USER CODE END EXTI9_5_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM3 global interrupt.
   */
 void TIM3_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM3_IRQn 0 */
+    /* USER CODE BEGIN TIM3_IRQn 0 */
 
-  /* USER CODE END TIM3_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim3);
-  /* USER CODE BEGIN TIM3_IRQn 1 */
+    /* USER CODE END TIM3_IRQn 0 */
+    HAL_TIM_IRQHandler(&htim3);
+    /* USER CODE BEGIN TIM3_IRQn 1 */
 
-  /* USER CODE END TIM3_IRQn 1 */
+    /* USER CODE END TIM3_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
-
-void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin){
-  switch (GPIO_Pin){
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    switch (GPIO_Pin)
+    {
     case IT_PPS_Pin:
-      //front montant du pin pps du gps :: indique la seconde du ledGps
-      token = faketoken;
-      c2ui(token+2, itime,4);
-      time = ui2i(itime+2, 2)*1000;//time en 0.1 milis secondes
-      itime[4] = 0;
-      itime[5] = 0;
-      itime[6] = 0;
-      itime[7] = 0;
-      //envoie spi mfker
-      writeTime(seg_pin,itime,8);
-      //reset timer ?
-    break;
-  }
+
+
+        //front montant du pin pps du gps :: indique la seconde du ledGps
+        c2ui(token + 2, iTime, 4);
+        time = ui2i(iTime + 2, 2) * 1000; //time en 1 milis secondes
+
+        token[2 + 4] = '0';
+        token[2 + 5] = '0';
+        token[2 + 6] = '0';
+        //envoie spi mfker
+        //HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+        wT(seg_pin, token + 3, 0, 6);
+        // HAL_UART_Transmit(&huart2, token+2, 4, 5);
+        // HAL_UART_Transmit(&huart2, "\n", 1, 5);
+        // HAL_UART_Transmit(&huart2, "000", 3, 5);
+        //reset timer ?
+        break;
+    }
 }
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

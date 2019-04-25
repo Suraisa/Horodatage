@@ -43,8 +43,11 @@ public class PhotoEtalonnage extends ActionManager
     {
         if (camera == null)
         {
-            camera = new VideoCapture(0);
-            camera.set(Videoio.CAP_PROP_EXPOSURE, -13);
+            camera = new VideoCapture("/dev/video2");
+            camera.set(Videoio.CAP_PROP_EXPOSURE, -30);
+            camera.set(Videoio.CAP_PROP_FRAME_WIDTH, 240);
+            camera.set(Videoio.CAP_PROP_FRAME_HEIGHT, 352);
+            ;
         }
     }
 

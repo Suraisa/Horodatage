@@ -31,7 +31,7 @@ typedef struct
     //uint16_t miso_pin;
     //uint16_t clk_pin;
 } SEG_PIN;
-extern char itime[8];
+extern char iTime[8];
 extern SEG_PIN seg_pin;
 
 //functions

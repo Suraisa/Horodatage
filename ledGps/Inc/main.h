@@ -62,8 +62,7 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-extern char* token;
-extern char * faketoken;
+extern volatile char* token;
 
 /* USER CODE END EC */
 
@@ -92,6 +91,7 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 #define IT_PPS_Pin GPIO_PIN_7
 #define IT_PPS_GPIO_Port GPIOC
+#define IT_PPS_EXTI_IRQn EXTI9_5_IRQn
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
